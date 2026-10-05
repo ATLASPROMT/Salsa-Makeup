@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salsa Makeup | High-Fashion, Tech Keynote & SFX Artistry Portfolio</title>
+    <meta name="description" content="Salsa Makeup elevates editorial, tech keynote, and SFX fashion visuals through high-definition artistry and digital-ready precision.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#24a5f5',
+                        'primary-hover': '#1a8cd8',
+                        secondary: '#fcfcfc',
+                        tertiary: '#25db00',
+                        'dark-neutral': '#0f161a',
+                        'dark-surface': '#162026',
+                        'dark-card': '#1b2830',
+                        'light-neutral': '#f3f5f6',
+                        'subtle-border': 'rgba(255, 255, 255, 0.08)'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-primary': '0 0 30px rgba(36, 165, 245, 0.25)',
+                        'glow-tertiary': '0 0 20px rgba(37, 219, 0, 0.2)',
+                        'glass-card': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <style>
+        body {
+            background-color: #0f161a;
+            color: #f3f5f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism card utility */
+        .glass-panel {
+            background: rgba(22, 32, 38, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel-hover:hover {
+            border-color: rgba(36, 165, 245, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(36, 165, 245, 0.15);
+        }
+
+        /* Ambient glowing background blobs */
+        .glow-blob-1 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(36, 165, 245, 0.15) 0%, rgba(15, 22, 26, 0) 70%);
+            top: -100px;
+            right: -100px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glow-blob-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 219, 0, 0.08) 0%, rgba(15, 22, 26, 0) 70%);
+            bottom: 10%;
+            left: -150px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Scroll reveal class animations */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f161a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1b2830;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #24a5f5;
+        }
+
+        /* Before-After slider styles */
+        .ba-container {
+            position: relative;
+            user-select: none;
+            overflow: hidden;
+        }
+
+        .ba-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            overflow: hidden;
+        }
+
+        .ba-slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: #24a5f5;
+            cursor: ew-resize;
+            transform: translateX(-50%);
+            z-index: 20;
+            box-shadow: 0 0 10px rgba(36, 165, 245, 0.8);
+        }
+
+        .ba-slider-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #24a5f5;
+            color: #0f161a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(36, 165, 245, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-dark-neutral text-light-neutral antialiased selection:bg-primary selection:text-dark-neutral relative">
+
+    <!-- Ambient glowing backgrounds -->
+    <div class="glow-blob-1"></div>
+    <div class="glow-blob-2"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="glass-panel rounded-2xl px-5 py-3 flex items-center justify-between shadow-2xl">
+                <!-- Brand Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-dark-neutral font-extrabold text-lg shadow-glow-primary group-hover:scale-105 transition-transform">
+                        S
+                    </div>
+                    <div>
+                        <span class="font-bold text-lg tracking-tight text-secondary block leading-none">SALSA<span class="text-primary">.MAKEUP</span></span>
+                        <span class="text-[10px] text-gray-400 font-mono tracking-widest uppercase block mt-1">Editorial & SFX Tech</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                    <a href="#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="#works" class="hover:text-primary transition-colors">Selected Work</a>
+                    <a href="#transformation" class="hover:text-primary transition-colors">Studio</a>
+                    <a href="#estimator" class="hover:text-primary transition-colors">Estimator</a>
+                    <a href="#skills" class="hover:text-primary transition-colors">Techniques</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+
+                <!-- Right Side Actions & Status Indicator -->
+                <div class="flex items-center gap-4">
+                    <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-dark-card border border-subtle-border text-xs">
+                        <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                        <span class="text-gray-300 font-mono">Q4 Booking Open</span>
+                    </div>
+
+                    <a href="#estimator" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary hover:bg-primary-hover text-dark-neutral font-semibold text-sm transition-all shadow-glow-primary active:scale-95">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>Calculate Rate</span>
+                    </a>
+
+                    <!-- Mobile Menu Toggle Button -->
+                    <button id="mobile-menu-btn" aria-label="Toggle Mobile Menu" class="md:hidden text-gray-300 hover:text-white p-2 rounded-lg bg-dark-card border border-subtle-border">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3 glass-panel rounded-2xl p-6 flex-col gap-4 text-center border border-subtle-border">
+                <a href="#about" class="mobile-nav-link text-gray-200 py-2 hover:text-primary transition-colors">About</a>
+                <a href="#works" class="mobile-nav-link text-gray-200 py-2 hover:text-primary transition-colors">Selected Work</a>
+                <a href="#transformation" class="mobile-nav-link text-gray-200 py-2 hover:text-primary transition-colors">Studio Before/After</a>
+                <a href="#estimator" class="mobile-nav-link text-gray-200 py-2 hover:text-primary transition-colors">Booking Estimator</a>
+                <a href="#skills" class="mobile-nav-link text-gray-200 py-2 hover:text-primary transition-colors">Techniques & SFX</a>
+                <a href="#contact" class="mobile-nav-link text-gray-200 py-2 hover:text-primary transition-colors">Contact & Booking</a>
+                <a href="#estimator" class="w-full py-3 rounded-xl bg-primary text-dark-neutral font-bold text-center block mt-2">Book Campaign</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero" class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden">
+        <!-- Video Loop Background with Overlay -->
+        <div class="absolute inset-0 z-0 opacity-25 overflow-hidden">
+            <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-woman-getting-her-makeup-done-41279-large.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-neutral via-dark-neutral/80 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Text Column -->
+                <div class="lg:col-span-7 space-y-8 text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-card/90 border border-primary/30 text-primary text-xs font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>High-Fashion & Tech Keynote Artistry</span>
+                    </div>
+
+                    <!-- Single Sentence Hero Requirement -->
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-secondary leading-[1.15]">
+                        Salsa Makeup elevates <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-tertiary">editorial, tech keynote, and SFX fashion visuals</span> through high-definition artistry and digital-ready precision.
+                    </h1>
+
+                    <p class="text-gray-400 text-lg md:text-xl max-w-2xl font-normal leading-relaxed">
+                        Bridging high-fashion aesthetics with cinematic 8K camera lighting, prosthetics, and cyberpunk UV SFX for global brand campaigns, runway productions, and tech keynote key visuals.
+                    </p>
+
+                    <!-- Hero Call to Actions -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#works" class="px-7 py-4 rounded-xl bg-primary hover:bg-primary-hover text-dark-neutral font-bold text-base transition-all shadow-glow-primary hover:scale-[1.02] active:scale-95 flex items-center gap-3">
+                            <span>Explore Case Studies</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#transformation" class="px-7 py-4 rounded-xl bg-dark-card hover:bg-dark-surface border border-subtle-border text-secondary font-semibold text-base transition-all hover:border-gray-500 flex items-center gap-3">
+                            <i class="fa-solid fa-sliders text-primary"></i>
+                            <span>Interactive Before/After</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Metrics Bar (Animated Counter) -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-subtle-border max-w-xl">
+                        <div>
+                            <div class="text-3xl sm:text-4xl font-extrabold text-secondary font-mono tracking-tight flex items-center">
+                                <span class="counter-num" data-target="120">0</span>+
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1 uppercase font-medium">Campaigns & Shoots</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl sm:text-4xl font-extrabold text-primary font-mono tracking-tight flex items-center">
+                                <span class="counter-num" data-target="14">0</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1 uppercase font-medium">Vogue & Press Covers</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl sm:text-4xl font-extrabold text-tertiary font-mono tracking-tight flex items-center">
+                                <span class="counter-num" data-target="99.8">0</span>%
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1 uppercase font-medium">Client Approval Rate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Column (3D Glass Featured Portrait Card) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Decorative Neon Ring -->
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary to-tertiary opacity-30 blur-xl"></div>
+                        
+                        <div class="relative glass-panel rounded-3xl overflow-hidden p-3 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Salsa Makeup Editorial Showcase Portrait" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/800x1000/0f161a/24a5f5?text=Salsa+Makeup+Artistry';"
+                                 class="w-full h-[480px] object-cover rounded-2xl filter brightness-105 contrast-105">
+
+                            <!-- Floating Badge Card -->
+                            <div class="absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-4 border border-white/10 flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-mono text-tertiary uppercase tracking-wider block">Featured Visual</span>
+                                    <h4 class="text-sm font-bold text-secondary">Neo-Cyberpunk Vogue Cover 2026</h4>
+                                </div>
+                                <span class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-camera"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="py-24 relative z-10 border-t border-subtle-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-mono text-primary uppercase tracking-widest block mb-2">// SELECTED NARRATIVES</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-secondary tracking-tight">Case Studies & Key Projects</h2>
+                    <p class="text-gray-400 mt-2 max-w-xl">Explore context, technical skin execution, HD lighting adaptations, and key creative outcomes for selected global productions.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 bg-dark-surface p-1.5 rounded-2xl border border-subtle-border" id="project-filters">
+                    <button class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-primary text-dark-neutral transition-all" data-category="all">All Works</button>
+                    <button class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-all" data-category="editorial">Editorial</button>
+                    <button class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-all" data-category="sfx">Cyberpunk SFX</button>
+                    <button class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-all" data-category="keynote">Tech Keynotes</button>
+                </div>
+            </div>
+
+            <!-- Case Study Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card reveal-element glass-panel glass-panel-hover rounded-2xl overflow-hidden cursor-pointer" data-category="editorial" onclick="openCaseStudy(1)">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=800&q=80" 
+                             alt="Vogue Cyberpunk Beauty Editorial" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/0f161a/24a5f5?text=Vogue+Editorial';"
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full text-[11px] font-mono uppercase font-bold bg-dark-neutral/80 text-primary border border-primary/30 backdrop-blur-md">Editorial</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 font-mono">Client: Vogue Tech Italy · 2026</span>
+                        <h3 class="text-xl font-bold text-secondary mt-1 group-hover:text-primary transition-colors">Aetheria: Holographic Skin Editorial</h3>
+                        <p class="text-gray-400 text-sm mt-2 line-clamp-2">High-definition micro-pigment skin work with light-refracting silicone accents tailored for 8K macro closeups.</p>
+                        <div class="mt-4 pt-4 border-t border-subtle-border flex items-center justify-between text-xs text-primary font-semibold">
+                            <span>Read Narrative Case Study</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card reveal-element glass-panel glass-panel-hover rounded-2xl overflow-hidden cursor-pointer" data-category="sfx" onclick="openCaseStudy(2)">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" 
+                             alt="Neon Synthwave Key visual" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/0f161a/25db00?text=Synthwave+SFX';"
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full text-[11px] font-mono uppercase font-bold bg-dark-neutral/80 text-tertiary border border-tertiary/30 backdrop-blur-md">Cyberpunk SFX</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 font-mono">Client: Neural AI Summit · 2026</span>
+                        <h3 class="text-xl font-bold text-secondary mt-1">Bionic Humanoid UV Prosthetics</h3>
+                        <p class="text-gray-400 text-sm mt-2 line-clamp-2">UV-reactive pigments paired with liquid silicone prosthetics to simulate augmented neural pathways under stadium stage lighting.</p>
+                        <div class="mt-4 pt-4 border-t border-subtle-border flex items-center justify-between text-xs text-primary font-semibold">
+                            <span>Read Narrative Case Study</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card reveal-element glass-panel glass-panel-hover rounded-2xl overflow-hidden cursor-pointer" data-category="keynote" onclick="openCaseStudy(3)">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80" 
+                             alt="Tech Keynote Executive Styling" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/0f161a/fcfcfc?text=Tech+Keynote';"
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full text-[11px] font-mono uppercase font-bold bg-dark-neutral/80 text-secondary border border-white/20 backdrop-blur-md">Tech Keynote</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 font-mono">Client: Quantum Corp Global Keynote</span>
+                        <h3 class="text-xl font-bold text-secondary mt-1">Keynote Speaker Anti-Glare Skin Prep</h3>
+                        <p class="text-gray-400 text-sm mt-2 line-clamp-2">Ultra-matte high-end skin priming for executive speakers under intense high-lumen 4K broadcast lights.</p>
+                        <div class="mt-4 pt-4 border-t border-subtle-border flex items-center justify-between text-xs text-primary font-semibold">
+                            <span>Read Narrative Case Study</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="case-study-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md transition-all">
+        <div class="glass-panel w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-y-auto border border-subtle-border p-6 sm:p-8 relative text-left shadow-2xl">
+            <!-- Close Modal Button -->
+            <button onclick="closeCaseStudy()" aria-label="Close Modal" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-dark-card hover:bg-gray-700 text-gray-300 hover:text-white flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Dynamic Content Area -->
+            <div id="modal-body" class="space-y-6">
+                <!-- Javascript will inject detailed narrative here -->
+            </div>
+        </div>
+    </div>
+
+    <section id="transformation" class="py-24 relative z-10 bg-dark-surface/40 border-t border-subtle-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-mono text-tertiary uppercase tracking-widest block mb-2">// TRANSFORMATION STUDIO</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-secondary tracking-tight">Interactive Before & After</h2>
+                <p class="text-gray-400 mt-2">Drag the slider to inspect RAW skin preparation vs. the high-definition finished editorial & prosthetic layering.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-panel p-4 rounded-3xl">
+                    <div class="ba-container rounded-2xl h-[450px] sm:h-[550px] w-full" id="ba-slider">
+                        <!-- After Image (Base) -->
+                        <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Finished High Fashion Editorial Finish" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/1200x800/0f161a/24a5f5?text=Finished+Artistry';"
+                             class="absolute inset-0 w-full h-full object-cover">
+
+                        <div class="absolute bottom-4 right-4 bg-dark-neutral/80 backdrop-blur-md px-3 py-1 rounded-lg border border-primary/30 text-xs font-mono text-primary z-10">
+                            FINISHED EDITORIAL LOOK
+                        </div>
+
+                        <!-- Before Image (Overlay) -->
+                        <div class="ba-overlay" id="ba-overlay">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80" 
+                                 alt="Raw Pre-makeup Canvas Prep" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/1200x800/162026/fcfcfc?text=RAW+Canvas';"
+                                 class="absolute inset-0 w-full h-full object-cover max-w-none">
+                            <div class="absolute bottom-4 left-4 bg-dark-neutral/80 backdrop-blur-md px-3 py-1 rounded-lg border border-white/20 text-xs font-mono text-gray-300 z-10">
+                                RAW CANVAS / SKIN PREP
+                            </div>
+                        </div>
+
+                        <!-- Slider Handle -->
+                        <div class="ba-slider-handle" id="ba-handle">
+                            <div class="ba-slider-btn">
+                                <i class="fa-solid fa-arrows-left-right text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="estimator" class="py-24 relative z-10 border-t border-subtle-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-mono text-primary uppercase tracking-widest block">// TRANSPARENT ESTIMATOR</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-secondary tracking-tight">Interactive Booking Estimator</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        Calculate transparent rates for commercial campaigns, tech keynote speaker styling, and editorial shoots tailored to your production scope.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-dark-card border border-subtle-border">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-secondary">Rapid On-Set Touch-ups</h4>
+                                <p class="text-xs text-gray-400 mt-1">Includes continuous matte maintenance under 8K camera lights for full production days.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-dark-card border border-subtle-border">
+                            <div class="w-10 h-10 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-solid fa-plane"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-secondary">Global Mobility</h4>
+                                <p class="text-xs text-gray-400 mt-1">Available for worldwide travel (Jakarta, Singapore, Tokyo, Milan, Paris & London shoots).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Calculator Widget Card -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-subtle-border shadow-2xl relative">
+                        <h3 class="text-xl font-bold text-secondary mb-6 flex items-center gap-3">
+                            <i class="fa-solid fa-sliders text-primary"></i>
+                            <span>Production Rate Calculator</span>
+                        </h3>
+
+                        <div class="space-y-6">
+                            <!-- Service Type Selection -->
+                            <div>
+                                <label class="block text-xs font-mono uppercase text-gray-300 mb-3">1. Select Project Type</label>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="calc-project-type">
+                                    <button class="calc-type-btn active p-4 rounded-2xl border border-primary bg-primary/10 text-left transition-all" data-base="850" data-type="Editorial Shoot">
+                                        <div class="text-sm font-bold text-secondary">Editorial Campaign</div>
+                                        <div class="text-xs text-primary font-mono mt-1">$850 Base</div>
+                                    </button>
+                                    <button class="calc-type-btn p-4 rounded-2xl border border-subtle-border bg-dark-card hover:border-gray-500 text-left transition-all" data-base="1200" data-type="Cyberpunk / SFX Film">
+                                        <div class="text-sm font-bold text-secondary">Cyberpunk / SFX</div>
+                                        <div class="text-xs text-tertiary font-mono mt-1">$1,200 Base</div>
+                                    </button>
+                                    <button class="calc-type-btn p-4 rounded-2xl border border-subtle-border bg-dark-card hover:border-gray-500 text-left transition-all" data-base="650" data-type="Tech Keynote Styling">
+                                        <div class="text-sm font-bold text-secondary">Tech Keynote</div>
+                                        <div class="text-xs text-gray-400 font-mono mt-1">$650 Base</div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Duration Slider -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-xs font-mono uppercase text-gray-300">2. On-Set Hours / Days</label>
+                                    <span class="text-sm font-bold text-primary font-mono" id="calc-hours-display">1 Day (8 Hours)</span>
+                                </div>
+                                <input type="range" min="1" max="5" value="1" id="calc-hours-slider" class="w-full accent-primary bg-dark-card rounded-lg h-2 cursor-pointer">
+                            </div>
+
+                            <!-- Add-on Extras Options -->
+                            <div>
+                                <label class="block text-xs font-mono uppercase text-gray-300 mb-3">3. Production Extras</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center justify-between p-3 rounded-xl bg-dark-card border border-subtle-border cursor-pointer hover:border-gray-500">
+                                        <span class="flex items-center gap-3 text-sm text-gray-200">
+                                            <input type="checkbox" class="calc-extra accent-primary rounded" data-price="250" value="Airbrush HD Skin Finish">
+                                            <span>High-Definition Airbrush Skin Finish</span>
+                                        </span>
+                                        <span class="text-xs font-mono text-gray-400">+$250</span>
+                                    </label>
+
+                                    <label class="flex items-center justify-between p-3 rounded-xl bg-dark-card border border-subtle-border cursor-pointer hover:border-gray-500">
+                                        <span class="flex items-center gap-3 text-sm text-gray-200">
+                                            <input type="checkbox" class="calc-extra accent-primary rounded" data-price="400" value="Custom Prosthetic / UV SFX Accent">
+                                            <span>Custom UV / Silicone Prosthetic Elements</span>
+                                        </span>
+                                        <span class="text-xs font-mono text-gray-400">+$400</span>
+                                    </label>
+
+                                    <label class="flex items-center justify-between p-3 rounded-xl bg-dark-card border border-subtle-border cursor-pointer hover:border-gray-500">
+                                        <span class="flex items-center gap-3 text-sm text-gray-200">
+                                            <input type="checkbox" class="calc-extra accent-primary rounded" data-price="300" value="Second Artist Assistant">
+                                            <span>Assistant Key Makeup Artist (Multi-model)</span>
+                                        </span>
+                                        <span class="text-xs font-mono text-gray-400">+$300</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Total Summary & Action -->
+                            <div class="pt-6 border-t border-subtle-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <span class="text-xs font-mono text-gray-400 uppercase block">Estimated Budget</span>
+                                    <div class="text-3xl font-extrabold text-secondary font-mono" id="calc-total-display">$850</div>
+                                </div>
+
+                                <button onclick="applyEstimateToContact()" class="px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-dark-neutral font-bold text-sm transition-all shadow-glow-primary active:scale-95 flex items-center justify-center gap-2">
+                                    <span>Lock in Estimate & Book</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 relative z-10 bg-dark-surface/30 border-t border-subtle-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest block mb-2">// TECHNICAL MASTRY</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-secondary tracking-tight">Artistry & Technical Toolkit</h2>
+                <p class="text-gray-400 mt-2">Specialized skill set combining fine art pigments with high-speed digital camera optics.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border border-subtle-border">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-spray-can"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-secondary">HD Airbrushing</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Micro-atomized silicone airbrushing for poreless durability under 8K macro lenses without caking.</p>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border border-subtle-border">
+                    <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-secondary">Cyberpunk UV SFX</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Fluorescent UV-reactive paints and fiber-optic micro-accents engineered for dramatic stage effects.</p>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border border-subtle-border">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-mask"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-secondary">Silicone Prosthetics</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Custom sculpted gelatin and silicone face pieces with blended edge transitions for film & key visuals.</p>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border border-subtle-border">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-secondary">Camera Color Science</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Mastery of RAW lighting temp, studio gels, and pigment reflectance under ARRI Alexa & RED V-Raptor sensors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative z-10 border-t border-subtle-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Visual Left -->
+                <div class="lg:col-span-5">
+                    <div class="glass-panel p-3 rounded-3xl relative">
+                        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Salsa Makeup Artist Portrait" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x1000/0f161a/24a5f5?text=Salsa+Artist';"
+                             class="w-full h-[500px] object-cover rounded-2xl filter contrast-105">
+
+                        <div class="absolute -bottom-6 -right-6 glass-panel p-4 rounded-2xl hidden sm:block border border-primary/30 shadow-glow-primary">
+                            <span class="text-2xl font-extrabold text-primary block font-mono">6+ Years</span>
+                            <span class="text-xs text-gray-300">Global Industry Experience</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bio & Timeline Right -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div>
+                        <span class="text-xs font-mono text-primary uppercase tracking-widest block mb-2">// CREATIVE ARTIST</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-secondary tracking-tight">About Salsa</h2>
+                        <p class="text-gray-300 mt-4 leading-relaxed">
+                            With a background in fine art portraiture and cinema prosthetics, I specialize in crafting high-impact makeup looks that translate flawlessly across 8K digital motion and editorial prints. Based in Jakarta with worldwide travel capabilities.
+                        </p>
+                    </div>
+
+                    <!-- Milestone Timeline -->
+                    <div class="space-y-6 border-l-2 border-subtle-border pl-6 relative">
+                        <!-- Item 1 -->
+                        <div class="relative">
+                            <span class="w-3 h-3 rounded-full bg-primary absolute -left-[31px] top-1 shadow-glow-primary"></span>
+                            <span class="text-xs font-mono text-primary">2026 — PRESENT</span>
+                            <h4 class="text-base font-bold text-secondary mt-0.5">Key Makeup Director for Vogue Cyberpunk Issue</h4>
+                            <p class="text-xs text-gray-400 mt-1">Lead art direction for 12 cover editorials featuring holographic skin technology.</p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="relative">
+                            <span class="w-3 h-3 rounded-full bg-gray-600 absolute -left-[31px] top-1"></span>
+                            <span class="text-xs font-mono text-gray-400">2024 — 2025</span>
+                            <h4 class="text-base font-bold text-secondary mt-0.5">Lead Stylist — Global Tech Keynote Series</h4>
+                            <p class="text-xs text-gray-400 mt-1">Managed high-definition anti-glare skin prep for 40+ C-level executives at global tech keynotes.</p>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="relative">
+                            <span class="w-3 h-3 rounded-full bg-gray-600 absolute -left-[31px] top-1"></span>
+                            <span class="text-xs font-mono text-gray-400">2021 — 2023</span>
+                            <h4 class="text-base font-bold text-secondary mt-0.5">Editorial SFX Specialist</h4>
+                            <p class="text-xs text-gray-400 mt-1">Designed custom prosthetics and UV luminescent makeup for commercial fashion films.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 relative z-10 bg-dark-surface/20 border-t border-subtle-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <span class="text-xs font-mono text-tertiary uppercase tracking-widest block mb-2">// ENDORSEMENTS</span>
+                <h2 class="text-3xl font-bold text-secondary">Client & Director Feedback</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-1 text-tertiary text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-300 italic">"Salsa's skin execution for our 8K camera shoot was immaculate. No retouching was needed for the skin textures!"</p>
+                    <div class="pt-2 border-t border-subtle-border">
+                        <div class="text-xs font-bold text-secondary">Marcus Vance</div>
+                        <div class="text-[11px] text-gray-400">Creative Director, Vogue Digital</div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-1 text-tertiary text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-300 italic">"She handled our keynote speakers under intense 4K stadium lights flawlessly. Long-lasting matte without drying skin."</p>
+                    <div class="pt-2 border-t border-subtle-border">
+                        <div class="text-xs font-bold text-secondary">Elena Rostova</div>
+                        <div class="text-[11px] text-gray-400">VP Communications, Quantum Corp</div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-1 text-tertiary text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-300 italic">"The UV SFX prosthetics Salsa designed elevated our film visual identity to an international award-winning level."</p>
+                    <div class="pt-2 border-t border-subtle-border">
+                        <div class="text-xs font-bold text-secondary">Kenji Takahashi</div>
+                        <div class="text-[11px] text-gray-400">Film Director, Cyberpunk Visuals</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 relative z-10 border-t border-subtle-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-mono text-primary uppercase tracking-widest block">// INITIATE BOOKING</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-secondary tracking-tight">Let's Create Exceptional Visuals</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        Currently booking editorial campaigns, film SFX, and high-profile keynote styling sessions for Q4 2026.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4 text-sm text-gray-300">
+                            <div class="w-10 h-10 rounded-xl bg-dark-card border border-subtle-border flex items-center justify-center text-primary">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-mono text-gray-400 block">Direct Inquiry</span>
+                                <a href="mailto:booking@salsamakeup.com" class="hover:text-primary font-semibold">booking@salsamakeup.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 text-sm text-gray-300">
+                            <div class="w-10 h-10 rounded-xl bg-dark-card border border-subtle-border flex items-center justify-center text-primary">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-mono text-gray-400 block">Studio Location</span>
+                                <span class="font-semibold text-secondary">Jakarta, Indonesia (Global Travel Available)</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 text-sm text-gray-300">
+                            <div class="w-10 h-10 rounded-xl bg-dark-card border border-subtle-border flex items-center justify-center text-tertiary">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-mono text-gray-400 block">Social Portfolio</span>
+                                <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-tertiary font-semibold">@salsamakeup.official</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="lg:col-span-7">
+                    <form id="booking-form" class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 border border-subtle-border shadow-2xl">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="form-name" class="block text-xs font-mono uppercase text-gray-300 mb-2">Your Name *</label>
+                                <input type="text" id="form-name" required placeholder="e.g. Sarah Jenkins" class="w-full px-4 py-3 rounded-xl bg-dark-card border border-subtle-border text-white focus:outline-none focus:border-primary transition-colors text-sm">
+                            </div>
+
+                            <div>
+                                <label for="form-email" class="block text-xs font-mono uppercase text-gray-300 mb-2">Email Address *</label>
+                                <input type="email" id="form-email" required placeholder="sarah@agency.com" class="w-full px-4 py-3 rounded-xl bg-dark-card border border-subtle-border text-white focus:outline-none focus:border-primary transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="form-project-type" class="block text-xs font-mono uppercase text-gray-300 mb-2">Project Category</label>
+                                <select id="form-project-type" class="w-full px-4 py-3 rounded-xl bg-dark-card border border-subtle-border text-white focus:outline-none focus:border-primary transition-colors text-sm">
+                                    <option value="Editorial Shoot">Editorial Shoot</option>
+                                    <option value="Cyberpunk / SFX Film">Cyberpunk / SFX Film</option>
+                                    <option value="Tech Keynote Styling">Tech Keynote Styling</option>
+                                    <option value="Commercial Campaign">Commercial Campaign</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="form-date" class="block text-xs font-mono uppercase text-gray-300 mb-2">Target Date</label>
+                                <input type="date" id="form-date" class="w-full px-4 py-3 rounded-xl bg-dark-card border border-subtle-border text-white focus:outline-none focus:border-primary transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="form-details" class="block text-xs font-mono uppercase text-gray-300 mb-2">Project Brief & Requirements</label>
+                            <textarea id="form-details" rows="4" placeholder="Describe the shoot concept, location, number of models, and estimated budget..." class="w-full px-4 py-3 rounded-xl bg-dark-card border border-subtle-border text-white focus:outline-none focus:border-primary transition-colors text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-primary hover:bg-primary-hover text-dark-neutral font-bold text-base transition-all shadow-glow-primary active:scale-[0.98] flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Submit Booking Request</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-subtle-border relative z-10 text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded-lg bg-primary text-dark-neutral font-black flex items-center justify-center">S</div>
+                <span class="text-sm font-bold text-secondary">SALSA MAKEUP ARTISTRY</span>
+            </div>
+
+            <p>© 2026 Salsa Makeup. All rights reserved. High-Fashion & Tech Keynote Artistry.</p>
+
+            <button onclick="scrollToTop()" aria-label="Scroll to Top" class="p-3 rounded-xl bg-dark-card hover:bg-dark-surface border border-subtle-border text-gray-300 hover:text-white transition-all">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden glass-panel border border-tertiary/40 rounded-2xl p-4 shadow-2xl flex items-center gap-3 max-w-md">
+        <div class="w-8 h-8 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center font-bold text-sm shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <h4 class="text-xs font-bold text-secondary" id="toast-title">Booking Inquiry Received</h4>
+            <p class="text-[11px] text-gray-300" id="toast-message">Thank you! Salsa's studio team will reply within 24 hours.</p>
+        </div>
+    </div>
+
+    <script>
+        let lenis;
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lenis Smooth Scroll
+            lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                smoothTouch: false,
+                touchMultiplier: 2
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // Setup Navigation links to use smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        lenis.scrollTo(targetEl);
+                        // Close mobile menu if open
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                });
+            });
+
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-element').forEach(el => revealObserver.observe(el));
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseFloat(counter.getAttribute('data-target'));
+                        let count = 0;
+                        const speed = target / 50;
+
+                        const updateCount = () => {
+                            count += speed;
+                            if (count < target) {
+                                counter.innerText = Number.isInteger(target) ? Math.ceil(count) : count.toFixed(1);
+                                setTimeout(updateCount, 30);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                        counterObserver.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.counter-num').forEach(c => counterObserver.observe(c));
+
+            initBeforeAfterSlider();
+
+            initCalculator();
+
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const bookingForm = document.getElementById('booking-form');
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showToast("Booking Request Received", "Salsa's management team will reply within 24 hours.");
+                bookingForm.reset();
+            });
+        });
+
+        const caseStudyData = {
+            1: {
+                title: "Aetheria: Holographic Skin Editorial",
+                client: "Vogue Tech Italy · 2026",
+                category: "High-Fashion Editorial",
+                image: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=1200&q=80",
+                context: "Vogue Tech commissioned a multi-page high-fashion editorial exploring the intersection of biological skin and digital holograms for their 2026 Innovation Issue.",
+                execution: "Utilized atomized micro-pigments and ultra-thin light-refracting silicone films around high points of the face. Prepared skin using non-comedogenic hyaluronic layering to maintain high gloss under 8K sensor macro shots.",
+                outcome: "Featured on 3 global Vogue magazine covers. Zero digital retouching was required for skin smoothing, cutting post-production turnaround by 40%."
+            },
+            2: {
+                title: "Bionic Humanoid UV Prosthetics",
+                client: "Neural AI Summit · Key Visual 2026",
+                category: "Cyberpunk SFX",
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
+                context: "The Neural AI Summit required live performance models to embody augmented human cybernetics during their keynote presentation in front of 5,000 attendees.",
+                execution: "Hand-sculpted gelatin and silicone prosthetic circuit lines infused with custom dual-spectrum UV pigments that glowed under stage blacklight while remaining seamless under daylight spectrum spotlights.",
+                outcome: "Broadcasting reached 1.2 million live viewers worldwide with overwhelmingly positive reception from international tech media."
+            },
+            3: {
+                title: "Keynote Speaker Anti-Glare Skin Prep",
+                client: "Quantum Corp Global Keynote",
+                category: "Tech Keynote Styling",
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80",
+                context: "Managing high-definition executive makeup for C-suite presenters keynoting under 4K broadcast camera arrays.",
+                execution: "Layered oil-controlling silica micro-powders combined with ultra-light mineral tint to prevent specular reflection under 1000-watt key lights while keeping skin natural.",
+                outcome: "Maintained complete matte integrity over 6 hours of continuous live keynotes without requiring stage pauses for touch-ups."
+            }
+        };
+
+        function openCaseStudy(id) {
+            const data = caseStudyData[id];
+            if (!data) return;
+
+            const modalBody = document.getElementById('modal-body');
+            modalBody.innerHTML = `
+                <div class="relative h-64 sm:h-80 rounded-2xl overflow-hidden mb-6">
+                    <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-neutral via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-mono uppercase font-bold bg-primary text-dark-neutral mb-2 inline-block">${data.category}</span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">${data.title}</h3>
+                        <p class="text-xs text-gray-300 font-mono">${data.client}</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-panel p-4 rounded-xl space-y-1">
+                        <span class="text-[11px] font-mono text-primary uppercase block">// CONTEXT</span>
+                        <p class="text-xs text-gray-300">${data.context}</p>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl space-y-1">
+                        <span class="text-[11px] font-mono text-tertiary uppercase block">// TECHNIQUE</span>
+                        <p class="text-xs text-gray-300">${data.execution}</p>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl space-y-1">
+                        <span class="text-[11px] font-mono text-secondary uppercase block">// OUTCOME</span>
+                        <p class="text-xs text-gray-300">${data.outcome}</p>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('case-study-modal');
+            modal.classList.remove('hidden');
+        }
+
+        function closeCaseStudy() {
+            document.getElementById('case-study-modal').classList.add('hidden');
+        }
+
+        document.querySelectorAll('#project-filters .filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#project-filters .filter-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-primary', 'text-dark-neutral');
+                    b.classList.add('text-gray-400');
+                });
+
+                btn.classList.add('active', 'bg-primary', 'text-dark-neutral');
+                btn.classList.remove('text-gray-400');
+
+                const cat = btn.getAttribute('data-category');
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (cat === 'all' || card.getAttribute('data-category') === cat) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        function initBeforeAfterSlider() {
+            const container = document.getElementById('ba-slider');
+            const overlay = document.getElementById('ba-overlay');
+            const handle = document.getElementById('ba-handle');
+            let isDragging = false;
+
+            if (!container || !overlay || !handle) return;
+
+            const move = (x) => {
+                const rect = container.getBoundingClientRect();
+                let position = x - rect.left;
+                if (position < 0) position = 0;
+                if (position > rect.width) position = rect.width;
+                const percentage = (position / rect.width) * 100;
+                overlay.style.width = `${percentage}%`;
+                handle.style.left = `${percentage}%`;
+            };
+
+            container.addEventListener('mousedown', (e) => { isDragging = true; move(e.clientX); });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            window.addEventListener('mousemove', (e) => { if (isDragging) move(e.clientX); });
+
+            // Touch support for mobile devices
+            container.addEventListener('touchstart', (e) => { isDragging = true; move(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => { isDragging = false; });
+            window.addEventListener('touchmove', (e) => { if (isDragging) move(e.touches[0].clientX); });
+        }
+
+        let currentBasePrice = 850;
+        let selectedProjectType = "Editorial Campaign";
+
+        function initCalculator() {
+            const typeBtns = document.querySelectorAll('.calc-type-btn');
+            const slider = document.getElementById('calc-hours-slider');
+            const hoursDisplay = document.getElementById('calc-hours-display');
+            const extras = document.querySelectorAll('.calc-extra');
+
+            typeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    typeBtns.forEach(b => {
+                        b.classList.remove('border-primary', 'bg-primary/10');
+                        b.classList.add('border-subtle-border', 'bg-dark-card');
+                    });
+                    btn.classList.add('border-primary', 'bg-primary/10');
+                    btn.classList.remove('border-subtle-border', 'bg-dark-card');
+
+                    currentBasePrice = parseInt(btn.getAttribute('data-base'));
+                    selectedProjectType = btn.getAttribute('data-type');
+                    updateTotal();
+                });
+            });
+
+            slider.addEventListener('input', () => {
+                const days = slider.value;
+                hoursDisplay.innerText = `${days} Day${days > 1 ? 's' : ''} (${days * 8} Hours)`;
+                updateTotal();
+            });
+
+            extras.forEach(extra => {
+                extra.addEventListener('change', updateTotal);
+            });
+
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const days = parseInt(document.getElementById('calc-hours-slider').value);
+            let total = currentBasePrice * days;
+
+            document.querySelectorAll('.calc-extra:checked').forEach(cb => {
+                total += parseInt(cb.getAttribute('data-price'));
+            });
+
+            document.getElementById('calc-total-display').innerText = `$${total.toLocaleString()}`;
+        }
+
+        function applyEstimateToContact() {
+            const total = document.getElementById('calc-total-display').innerText;
+            const days = document.getElementById('calc-hours-slider').value;
+
+            document.getElementById('form-project-type').value = selectedProjectType;
+            document.getElementById('form-details').value = `Booking inquiry for ${selectedProjectType} estimated at ${total} (${days} Day(s) production scope).`;
+
+            if (lenis) {
+                lenis.scrollTo(document.getElementById('contact'));
+            }
+        }
+
+        function showToast(title, message) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-message').innerText = message;
+
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 5000);
+        }
+
+        function scrollToTop() {
+            if (lenis) {
+                lenis.scrollTo(0);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
