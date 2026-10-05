@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="id" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Look Not Found | Salsa Makeup Portfolio</title>
-
-    <!-- Tailwind CSS -->
+    <title>Halaman Tidak Ditemukan (404) | Salsa Makeup Artistry</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,39 +18,67 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#24a5f5',
-                        'dark-neutral': '#0f161a',
-                        'dark-card': '#162026',
-                        'subtle-border': 'rgba(255, 255, 255, 0.08)'
+                        primary: '#ff0040',
+                        'tertiary-accent': '#ffd500',
+                        'dark-neutral': '#1a0f12',
+                        'light-neutral': '#f6f3f4',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #1a0f12;
+            color: #f6f3f4;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 30px rgba(255, 0, 64, 0.5);
+        }
+
+        .glass-card {
+            background: rgba(37, 23, 27, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 0, 64, 0.2);
+        }
+    </style>
 </head>
-<body class="bg-dark-neutral text-white min-h-screen flex items-center justify-center p-6 antialiased relative overflow-hidden">
+<body class="min-h-screen flex items-center justify-center relative p-6">
+    <!-- Subtle Background Glow -->
+    <div class="absolute w-96 h-96 bg-primary/20 rounded-full blur-[120px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
-    <!-- Ambient background glow -->
-    <div class="absolute w-96 h-96 bg-primary/10 rounded-full blur-3xl -top-20 -left-20 pointer-events-none"></div>
-
-    <div class="max-w-md w-full text-center space-y-6 relative z-10 bg-dark-card/60 backdrop-blur-xl p-8 rounded-3xl border border-subtle-border shadow-2xl">
-        <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold mx-auto border border-primary/20">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
+    <div class="relative z-10 max-w-lg w-full text-center glass-card p-10 rounded-3xl shadow-2xl">
+        <div class="w-16 h-16 rounded-full border border-primary/40 bg-primary/10 flex items-center justify-center mx-auto mb-6">
+            <span class="font-serif italic font-bold text-2xl text-primary">S</span>
         </div>
 
-        <h1 class="text-6xl font-extrabold font-mono text-primary tracking-tight">404</h1>
-        
-        <div>
-            <h2 class="text-xl font-bold text-white">Visual Framing Missed</h2>
-            <p class="text-xs text-gray-400 mt-2 leading-relaxed">The portfolio page or shoot case study you are searching for might have been relocated or updated.</p>
-        </div>
+        <h1 class="font-display font-extrabold text-7xl text-primary text-glow mb-2">404</h1>
+        <h2 class="font-serif italic text-3xl text-light-neutral mb-4">Momen Ini Belum Didefinisikan</h2>
 
-        <a href="index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary hover:bg-blue-600 text-dark-neutral font-bold text-sm transition-all w-full shadow-lg">
-            <i class="fa-solid fa-house text-xs"></i>
-            <span>Return to Portfolio Home</span>
-        </a>
+        <p class="text-xs text-light-neutral/70 leading-relaxed mb-8">
+            Halaman yang Anda cari tidak ditemukan atau telah dipindahkan. Mari kembali ke beranda untuk menjelajahi karya dan layanan tata rias sinematik Salsa Makeup.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="index.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-primary hover:bg-primary/90 text-white text-xs uppercase tracking-widest font-semibold transition-all shadow-lg shadow-primary/30 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-house text-sm"></i>
+                <span>Kembali Ke Utama</span>
+            </a>
+            <a href="index.html#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-light-neutral/30 hover:border-primary text-light-neutral text-xs uppercase tracking-widest font-semibold transition-all">
+                <span>Hubungi Kami</span>
+            </a>
+        </div>
     </div>
-
 </body>
 </html>
